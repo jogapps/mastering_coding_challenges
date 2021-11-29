@@ -1,13 +1,13 @@
-const countToTen = (n) => {
+const countToNumber = (n) => {
     console.log(n);
     if(n - 1 > 0) {
-        countToTen(n - 1);
+        countToNumber(n - 1);
     }
 }
 
-const sumToTen = (n) => {
+const sumToNumber = (n) => {
     if(n == 1) return 1;
-    return fib = n + sumToTen(n - 1);
+    return sum = n + sumToNumber(n - 1);
 }
 
 const countDown = (n) => {
