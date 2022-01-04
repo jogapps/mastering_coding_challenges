@@ -126,23 +126,21 @@ class SinglyLinkedList {
     }
 
     reverse() {
-        if(!this.head) return undefined;
+             if(!this.head) return undefined;
         if(!this.head.next) return this.head;
-        let firstNode = this.head;
-        this.tail = firstNode;
-        let secondNode = firstNode.next;
-
-        while(secondNode) {
-            let thirdNode = secondNode.next;
-            secondNode.next = firstNode;
-            firstNode = secondNode;
-            secondNode = secondNode.next;
+        let current = this.head;
+        let next;
+        let previous = null;
+        this.head = this.tail;
+        this.tail = current;
+        for(let i = 0; i < this.length; i++) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
-        this.head.next = null;
-        this.head = this.secondNode;
-        console.log(this.print())
+        return this;
     }
-
 
     print() {
         let linkedArray = [];
@@ -168,5 +166,7 @@ singlyLinkedList.pop();
 singlyLinkedList.set(1, 10);
 singlyLinkedList.insert(2, "Hello");
 singlyLinkedList.remove(2);
+console.log(singlyLinkedList.print());
 console.log(singlyLinkedList.reverse())
 console.log(singlyLinkedList.print());
+console.log(singlyLinkedList.length);
